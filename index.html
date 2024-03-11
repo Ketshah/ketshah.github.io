@@ -1,24 +1,11 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Open Deep Link</title>
+    <title>Redirecting...</title>
+    <meta http-equiv="refresh" content="0;url=parkingapp://synoptek.parking">
 </head>
 <body>
-
-    <button onclick="openDeepLink()">Open Deep Link</button>
-
-    <script>function openDeepLink() {
-            // Replace 'yourdeeplink://target' with your actual deep link URL
-    var deepLinkUrl = 'parkingapp://synoptek.parking';
-
-            // Attempt to open the deep link URL
-            window.location.href = deepLinkUrl;
-
-            // Set a timeout to redirect to a fallback URL if the deep link doesn't work
-            setTimeout(function () {
-                window.location.href = 'https://example.com/fallback';
-            }, 3000); // Change 3000 to however long you want to wait for the deep link to respond
-        }</script>
-
+    <p>Redirecting to <a href="parkingapp://synoptek.parking">hparkingapp://synoptek.parking</a>...</p>
 </body>
 </html>
