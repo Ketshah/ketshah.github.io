@@ -32,10 +32,17 @@
 <body>
 
     <script>// Function to create a deep linking URL with input parameters
-        function createDeepLinkWithParams() {
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        function createDeepLinkFromUrlArguments() {
             // Input parameters
-            var basement = document.getElementById('basement').value;
-            var pakingNo = document.getElementById('pakingNo').value;
+            var basement = getUrlParameter('basement'); 
+            var pakingNo = getUrlParameter('pakingNo');
 
             // Deep linking URL
             var deepLink = "parkingapp://synoptek.parking/#/bookparking";
@@ -47,13 +54,9 @@
             // Output the deep linking URL
             document.getElementById('deepLinkOutput').innerHTML = deepLink;
         }</script>
-
-    <!-- Input fields for parameters -->
-    <input type="text" id="basement" placeholder="basement">
-    <input type="text" id="pakingNo" placeholder="pakingNo">
-
+  
     <!-- Button to generate the deep linking URL -->
-    <button onclick="createDeepLinkWithParams()">Generate Deep Link</button>
+    <button onclick="createDeepLinkFromUrlArguments()">Generate Deep Link</button>
 
     <!-- Placeholder for displaying the generated deep linking URL -->
     <div id="deepLinkOutput"></div>
