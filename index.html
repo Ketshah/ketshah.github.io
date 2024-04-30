@@ -51,8 +51,11 @@
             deepLink += "?basement=" + encodeURIComponent(basement);
             deepLink += "&pakingNo=" + encodeURIComponent(pakingNo);
 
-            // Output the deep linking URL
-            document.getElementById('deepLinkOutput').innerHTML = deepLink;
+            // Open the deep linking application
+            window.location.href = deepLink;
+
+            //// Output the deep linking URL
+            //document.getElementById('deepLinkOutput').innerHTML = deepLink;
         }</script>
   
     <!-- Button to generate the deep linking URL -->
