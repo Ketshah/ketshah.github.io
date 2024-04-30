@@ -51,9 +51,18 @@
             deepLink += "?basement=" + encodeURIComponent(basement);
             deepLink += "&pakingNo=" + encodeURIComponent(pakingNo);
 
-            // Open the deep linking application
-            window.location.href = deepLink;
 
+            // Create a meta tag
+            var metaTag = document.createElement('meta');
+            metaTag.setAttribute('http-equiv', 'refresh');
+            metaTag.setAttribute('content', '0;url=' + deepLink);
+
+            // Append the meta tag to the document head
+            document.head.appendChild(metaTag);
+
+            // Open the deep linking application
+            //window.location.href = deepLink;
+            //<meta http-equiv="refresh" content="0;url=parkingapp://synoptek.parking/#/bookparking">
             //// Output the deep linking URL
             //document.getElementById('deepLinkOutput').innerHTML = deepLink;
         }
@@ -62,9 +71,8 @@
             // Call openDeepLinkWithArguments function to open deep linking application
             openDeepLinkWithArguments();
         }
-
-        // Call onPageLoad function when the page loads
-        window.onload = onPageLoad;
+        // Call openDeepLinkWithArguments function when the page loads
+        window.onload = openDeepLinkWithArguments;
     </script>
   
     <!-- Button to generate the deep linking URL -->
