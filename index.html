@@ -59,12 +59,19 @@
             // Append the meta tag to the document head
             document.head.appendChild(metaTag);
 
-            window.close();
+            if (basement !== '' || parkingNo !== '') {
+                closeWindow();
+            }
+            
             // Open the deep linking application
             //window.location.href = deepLink;
             //<meta http-equiv="refresh" content="0;url=parkingapp://synoptek.parking/#/bookparking">
             //// Output the deep linking URL
             //document.getElementById('deepLinkOutput').innerHTML = deepLink;
+        }
+        function closeWindow() {
+            window.open('', '_self', ''); // ensures it's opened in the same window
+            window.close();
         }
         // Function to be called when the page loads
         function onPageLoad() {
