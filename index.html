@@ -68,10 +68,10 @@
         // Function to be called when the page loads
         function onPageLoad() {
             // Call openDeepLinkWithArguments function to open deep linking application
-            openDeepLinkWithArguments();
+            createDeepLinkFromUrlArguments();
         }
         // Call openDeepLinkWithArguments function when the page loads
-        window.onload = openDeepLinkWithArguments;</script>
+        window.onload = createDeepLinkFromUrlArguments;</script>
 
     <!-- Button to generate the deep linking URL -->
     <button onclick="createDeepLinkFromUrlArguments()">Book/Release parking</button>
