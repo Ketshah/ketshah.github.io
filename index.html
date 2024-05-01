@@ -59,10 +59,10 @@
             // Append the meta tag to the document head
             document.head.appendChild(metaTag);
 
-            if (basement !== '' || parkingNo !== '') {
-                closeWindow();
-            }
-            
+            //if (basement !== '' || parkingNo !== '') {
+            //    closeWindow();
+            //}
+
             // Open the deep linking application
             //window.location.href = deepLink;
             //<meta http-equiv="refresh" content="0;url=parkingapp://synoptek.parking/#/bookparking">
@@ -79,8 +79,10 @@
             createDeepLinkFromUrlArguments();
         }
         // Call openDeepLinkWithArguments function when the page loads
-        window.onload = createDeepLinkFromUrlArguments;</script>
-
+        window.onload = createDeepLinkFromUrlArguments;
+        window.onbeforeunload = closeWindow();
+    </script>
+   
     <!-- Button to generate the deep linking URL -->
     <button onclick="createDeepLinkFromUrlArguments()">Book/Release parking</button>
 
