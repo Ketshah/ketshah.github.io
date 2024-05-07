@@ -40,15 +40,18 @@
 
         function createDeepLinkFromUrlArguments() {
             // Input parameters
-            var basement = getUrlParameter('basement');
-            var parkingNo = getUrlParameter('parkingNo');
+            var key = getUrlParameter('key');
+            var no = getUrlParameter('No');
+
+            var firstChar = no.charAt(0); // Get the first character
+            var restOfString = no.substring(1); // Get the rest of the string starting from index 1
 
             // Deep linking URL
             var deepLink = "parkingapp://synoptek.parking/#/bookparking";
 
             // Append input parameters as query parameters
-            deepLink += "?basement=" + encodeURIComponent(basement);
-            deepLink += "&parkingNo=" + encodeURIComponent(parkingNo);
+            deepLink += "?key=" + encodeURIComponent(key);
+            //deepLink += "&parkingNo=" + encodeURIComponent(parkingNo);
 
 
             // Create a meta tag
