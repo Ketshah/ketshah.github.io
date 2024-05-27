@@ -59,8 +59,23 @@
             metaTag.setAttribute('http-equiv', 'refresh');
             metaTag.setAttribute('content', '0;url=' + deepLink);
 
+
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                var deepLinkURL = "intent://synoptek.parking/#/bookparking?key=" + key + "#Intent;scheme=parkingapp;package=com.synoptek.parking;end";
+                // Android
+                window.location.href = deepLinkURL;
+            } else if (/iPad|iPhone|iPod/i.test(userAgent)) {
+                // iOS
+                document.head.appendChild(metaTag);
+            } else {
+                // Other platforms
+                alert("This feature is not supported on your device.");
+            }
+
             // Append the meta tag to the document head
-            document.head.appendChild(metaTag);
+            
 
             //if (basement !== '' || parkingNo !== '') {
             //    closeWindow();
